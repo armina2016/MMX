@@ -1,0 +1,16 @@
+{% block header_wrapper %}
+    {% block header_account %}
+        {% include "snippets/header_account.html" %}
+    {% endblock %}
+    <header class="navbar-static-top masthead">
+        <div class="header">
+            <div class="bg-color">
+                <div id="main-header">
+                    <nav class="navbar navbar-default navbar-fixed-top">
+                        {#{% include "snippets/header_logo.html" %}#}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}

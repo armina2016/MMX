@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block page %}
+
+  {% block skip %}
+    <div class="hide"><a href="#content">{{ _('Skip to content') }}</a></div>
+  {% endblock %}
+
+  {% block header %}
+    {% include "header.html" %}
+  {% endblock %}
+
+  {% block content %}
+    {% block maintag %}<div role="main">{% endblock %}
+      <div id="content" class="container">
+        {% block main_content %}
+          {% block flash %}
+            <div class="flash-messages">
+              {% block flash_inner %}
+
+              {% endblock %}
+            </div>
+          {% endblock %}
+
+          {% block toolbar %}
+            <div class="toolbar">
+              {% block breadcrumb %}
+
+              {% endblock %}
+            </div>
+          {% endblock %}
+
+          <div class="row wrapper">
+            {% block pre_primary %}
+            {% endblock %}
+
+            {% block primary %}
+              <div class="primary col-md-8">
+                {% block primary_content %}
+                  <article class="module">
+                    {% block page_header %}
+                      <header class="module-content page-header">
+
+                        <ul class="nav nav-tabs">
+                          {% block content_primary_nav %}{% endblock %}
+                        </ul>
+                      </header>
+                    {% endblock %}
+                    <div class="module-content">
+
+                      {% block primary_content_inner %}
+                      {% endblock %}
+                    </div>
+                  </article>
+                {% endblock %}
+              </div>
+            {% endblock %}
+
+            {% block secondary %}
+              <aside class="secondary col-md-4">
+                {% block secondary_content %}{% endblock %}
+              </aside>
+            {% endblock %}
+          </div>
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block pre_footer %}{% endblock %}
+
+  {% block footer %}
+
+  {% endblock %}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

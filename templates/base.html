@@ -1,0 +1,59 @@
+{% load static %}
+{% load helpers %}
+{% lang as LANGUAGE_CODE %}
+{% templatedir as L_DIR %}
+
+{% block doctype %}<!DOCTYPE html>{% endblock %}
+
+<!--[if IE 7]> <html lang="{{ lang }}" class="ie ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="{{ lang }}" class="ie ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="{{ lang }}" class="ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE }}" dir="{{ L_DIR }}"> <!--<![endif]-->
+
+  <head{% block headtag %}{% endblock %}>
+    {% block meta %}
+      <meta charset="utf-8" />
+      {% block meta_generator %}<meta name="generator" content="bluePersia 1.0" />{% endblock %}
+      {% block meta_viewport %}<meta name="viewport" content="width=device-width, initial-scale=1.0"/>{% endblock %}
+    {% endblock %}
+
+    <title>
+      {% block title %}
+        {% block subtitle %}{% endblock %}
+
+        {% if langdir %}
+          '{{ g.site_titleRTL }}'
+        {% else %}
+          '{{ g.site_title }}'
+        {% endif %}
+      {% endblock %}
+    </title>
+
+    {% block links %}
+        <link rel="shortcut icon" type="image/png" href="{%  static 'images/favicon.png' %}"/>
+    {% endblock %}
+
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="{%  static 'vendors/materialize/css/materialize.min.css' %}">
+    {% endblock %}
+
+    {% block head_extras %}{% endblock %}
+
+    {% block custom_styles %}{% endblock %}
+
+  </head>
+
+  {# Allows custom attributes to be added to the <body> tag #}
+  <body{% block bodytag %} data-site-root="#" data-locale-root="#" {% endblock %}>
+    {% block scripts %}
+        <script type="text/javascript" src="{%  static 'vendors/jquery-3.2.1/jquery-3.2.1.min.js' %}"></script>
+        <script type="text/javascript" src="{%  static 'vendors/materialize/js/materialize.min.js' %}"></script>
+    {% endblock %}
+
+    {% block page %}{% endblock %}
+
+    {% block body_extras %}
+
+    {% endblock %}
+  </body>
+</html>
